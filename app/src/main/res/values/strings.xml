@@ -5,9 +5,9 @@
     <string name="chip_text_eur">EUR</string>
     <string name="chip_text_rub">RUB</string>
     <string name="iv_coins_list_description">Small icon of coin</string>
-    <string name="coin_detail_description_title">Описание</string>
-    <string name="coin_detail_categories_title">Категории</string>
-    <string name="iv_coin_detail_description">Image of the coin</string>
+    <string name="coin_details_description_title">Описание</string>
+    <string name="coin_details_categories_title">Категории</string>
+    <string name="iv_coin_details_description">Image of the coin</string>
     <string name="error_fragment_message">При загрузке произошла ошибка\nПопробовать снова?</string>
     <string name="error_fragment_button_text">Попробовать снова</string>
 </resources>

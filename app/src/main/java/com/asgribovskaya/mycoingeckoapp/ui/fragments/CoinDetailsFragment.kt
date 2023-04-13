@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.asgribovskaya.mycoingeckoapp.R
 
 
-class CoinDetailFragment : Fragment() {
+class CoinDetailsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +20,6 @@ class CoinDetailFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_coin_detail, container, false)
+        return inflater.inflate(R.layout.fragment_coin_details, container, false)
     }
 }
