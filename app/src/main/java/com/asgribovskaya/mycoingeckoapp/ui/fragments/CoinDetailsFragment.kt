@@ -15,7 +15,8 @@ import com.asgribovskaya.mycoingeckoapp.ui.viewmodels.CoinDetailsViewModel
 class CoinDetailsFragment : Fragment() {
 
     private var _binding: FragmentCoinDetailsBinding? = null
-    private val binding = _binding!!
+    private val binding
+        get() = _binding!!
 
     private val coinDetailsRepository = CoinDetailsRepository()
 

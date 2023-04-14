@@ -2,13 +2,13 @@ package com.asgribovskaya.mycoingeckoapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.asgribovskaya.mycoingeckoapp.R
 import com.asgribovskaya.mycoingeckoapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null
-    private val binding: ActivityMainBinding = _binding!!
+    private val binding
+        get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

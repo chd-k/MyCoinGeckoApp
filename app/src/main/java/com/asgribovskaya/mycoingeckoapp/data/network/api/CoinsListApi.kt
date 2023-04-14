@@ -12,7 +12,7 @@ interface CoinsListApi {
        currency: String,
 
        @Query("per_page")
-       items: Int = 30,
+       items: Int = 20,
 
        @Query("page")
        page: Int = 1,
