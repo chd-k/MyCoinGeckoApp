@@ -9,5 +9,24 @@
         android:id="@+id/coinsListFragment"
         android:name="com.asgribovskaya.mycoingeckoapp.ui.fragments.CoinsListFragment"
         android:label="fragment_coins_list"
-        tools:layout="@layout/fragment_coins_list" />
+        tools:layout="@layout/fragment_coins_list" >
+        <action
+            android:id="@+id/action_coinsListFragment_to_coinDetailsFragment"
+            app:destination="@id/coinDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coinDetailsFragment"
+        android:name="com.asgribovskaya.mycoingeckoapp.ui.fragments.CoinDetailsFragment"
+        android:label="fragment_coin_details"
+        tools:layout="@layout/fragment_coin_details" >
+        <argument
+            android:name="coinId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="com.asgribovskaya.mycoingeckoapp.ui.fragments.ErrorFragment"
+        android:label="fragment_error"
+        tools:layout="@layout/fragment_error" />
+    <action android:id="@+id/action_global_errorFragment" app:destination="@id/errorFragment" />
 </navigation>

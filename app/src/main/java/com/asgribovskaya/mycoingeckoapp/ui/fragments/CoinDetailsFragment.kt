@@ -5,21 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.asgribovskaya.mycoingeckoapp.R
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
+import com.asgribovskaya.mycoingeckoapp.data.network.repositories.CoinDetailsRepository
+import com.asgribovskaya.mycoingeckoapp.databinding.FragmentCoinDetailsBinding
+import com.asgribovskaya.mycoingeckoapp.ui.viewmodels.CoinDetailsViewModel
 
 
 class CoinDetailsFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private var _binding: FragmentCoinDetailsBinding? = null
+    private val binding = _binding!!
 
+    private val coinDetailsRepository = CoinDetailsRepository()
+
+    private val args: CoinDetailsFragmentArgs by navArgs()
+
+    private val viewModel: CoinDetailsViewModel by viewModels {
+        CoinDetailsViewModel.Factory(coinDetailsRepository, args.coinId)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
+        _binding = FragmentCoinDetailsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        return inflater.inflate(R.layout.fragment_coin_details, container, false)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
