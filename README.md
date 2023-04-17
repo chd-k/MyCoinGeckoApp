@@ -4,7 +4,8 @@
 
 There is an app that show crypto data provided by [CoinGecko API](https://www.coingecko.com/)
 
-### Technology stack
+### Realization
+#### Technology stack
 
 - Retrofit
 - OkHttp
@@ -15,6 +16,10 @@ There is an app that show crypto data provided by [CoinGecko API](https://www.co
 - View binding
 - MVVM
 - Material Design
+
+#### Features
+
+- `DiffUtil` usage
 
 ### Process decomposition
 
@@ -39,11 +44,11 @@ App
         
     |--- Data
         |--- Network            | Data recevied from network
-            |--- API            |
-            |--- Models         |
-            |--- DataSources    |
-            |--- Repositories   |
-            |--- Utils          |
+            |--- API            | Files to make requests to the API
+            |--- Models         | Representation of API responses
+            |--- DataSources    | Remote DataSource 
+            |--- Repositories   | Files that retrieve and manipulate data 
+            |--- Utils          | Utility files (constants and response wrapper)
 ```
 
 ### Upcoming updates
