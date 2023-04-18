@@ -19,8 +19,8 @@ There is an app that show crypto data provided by [CoinGecko API](https://www.co
 
 #### Features
 
-- `DiffUtil` usage
-- color state list resources
+- `DiffUtil` and `AdapterDataObserver` for scrolling `RecyclerView` to the top after changing list
+- color state list resources in `ChipGroup` for highlighting checked `Chip`
 
 ### Process decomposition
 
@@ -56,4 +56,4 @@ App
 
 - [ ] change fonts
 - [ ] add sorting
-- [ ] add colors in text
+- [ ] add colors in percentage change

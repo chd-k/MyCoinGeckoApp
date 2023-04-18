@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 
 class CoinDetailsViewModel(
     private val coinDetailsRepository: CoinDetailsRepository,
-    private val coinId: String,
+    coinId: String,
 ) : ViewModel() {
 
     private val _coinDetails = MutableStateFlow<ApiResponse<CoinDetailsResponse>>(ApiLoading())

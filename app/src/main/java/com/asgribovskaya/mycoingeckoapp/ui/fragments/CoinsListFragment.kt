@@ -29,7 +29,7 @@ class CoinsListFragment : Fragment() {
     private val binding
         get() = _binding!!
 
-    lateinit var coinsListAdapter: CoinsListAdapter
+    private lateinit var coinsListAdapter: CoinsListAdapter
 
     private val coinsListRepository = CoinsListRepository()
 
@@ -62,11 +62,17 @@ class CoinsListFragment : Fragment() {
             }
             registerAdapterDataObserver(
                 object : RecyclerView.AdapterDataObserver() {
-                    override fun onItemRangeMoved(
-                        fromPosition: Int,
-                        toPosition: Int,
-                        itemCount: Int,
-                    ) {
+                    override fun onItemRangeChanged(positionStart: Int, itemCount: Int) {
+                        super.onItemRangeChanged(positionStart, itemCount)
+                        binding.rvCoinsListCoins.scrollToPosition(0)
+                    }
+
+                    override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                        super.onItemRangeInserted(positionStart, itemCount)
+                        binding.rvCoinsListCoins.scrollToPosition(0)
+                    }
+
+                    override fun onItemRangeMoved(fromPosition: Int, toPosition: Int, itemCount: Int) {
                         super.onItemRangeMoved(fromPosition, toPosition, itemCount)
                         binding.rvCoinsListCoins.scrollToPosition(0)
                     }

@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.asgribovskaya.mycoingeckoapp.data.network.models.CoinsListResponse
-import com.asgribovskaya.mycoingeckoapp.data.network.models.CoinsListResponseItem
 import com.asgribovskaya.mycoingeckoapp.data.network.repositories.CoinsListRepository
 import com.asgribovskaya.mycoingeckoapp.data.network.utils.ApiLoading
 import com.asgribovskaya.mycoingeckoapp.data.network.utils.ApiResponse
