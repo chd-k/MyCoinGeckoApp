@@ -5,21 +5,34 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.asgribovskaya.mycoingeckoapp.R
+import androidx.navigation.fragment.findNavController
+import com.asgribovskaya.mycoingeckoapp.databinding.FragmentErrorBinding
 
 
 class ErrorFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private var _binding: FragmentErrorBinding? = null
+    private val binding
+        get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
+        _binding = FragmentErrorBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        return inflater.inflate(R.layout.fragment_error, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnErrorReload.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

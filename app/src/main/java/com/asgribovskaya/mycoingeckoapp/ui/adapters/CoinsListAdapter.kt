@@ -1,6 +1,5 @@
 package com.asgribovskaya.mycoingeckoapp.ui.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -34,9 +33,12 @@ class CoinsListAdapter : RecyclerView.Adapter<CoinsListViewHolder>() {
                 transformations(CircleCropTransformation())
             }
             tvItemCoinsListName.text = coin.name
-            tvItemCoinsListSymbol.text = coin.symbol
+            tvItemCoinsListSymbol.text = coin.symbol.uppercase()
             tvItemCoinsListPrice.text = coin.currentPrice.toString()
-            tvItemCoinsListChange.text = coin.priceChange24h.toString()
+            tvItemCoinsListChange.text = holder.itemView.context.getString(
+                com.asgribovskaya.mycoingeckoapp.R.string.coin_change_percentage,
+                coin.priceChangePercentage24h
+            )
         }
     }
 

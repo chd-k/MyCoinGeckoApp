@@ -8,6 +8,7 @@
     <string name="coin_details_description_title">Описание</string>
     <string name="coin_details_categories_title">Категории</string>
     <string name="iv_coin_details_description">Image of the coin</string>
-    <string name="error_fragment_message">При загрузке произошла ошибка\nПопробовать снова?</string>
+    <string name="error_fragment_message">При загрузке произошла ошибка\nПопробовать снова\?</string>
     <string name="error_fragment_button_text">Попробовать снова</string>
+    <string name="coin_change_percentage">%.2f%%</string>
 </resources>

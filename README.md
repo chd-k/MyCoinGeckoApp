@@ -20,6 +20,7 @@ There is an app that show crypto data provided by [CoinGecko API](https://www.co
 #### Features
 
 - `DiffUtil` usage
+- color state list resources
 
 ### Process decomposition
 

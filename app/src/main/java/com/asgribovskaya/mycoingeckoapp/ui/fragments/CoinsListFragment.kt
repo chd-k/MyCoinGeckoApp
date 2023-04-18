@@ -1,7 +1,6 @@
 package com.asgribovskaya.mycoingeckoapp.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +21,6 @@ import com.asgribovskaya.mycoingeckoapp.data.network.utils.ApiSuccess
 import com.asgribovskaya.mycoingeckoapp.databinding.FragmentCoinsListBinding
 import com.asgribovskaya.mycoingeckoapp.ui.adapters.CoinsListAdapter
 import com.asgribovskaya.mycoingeckoapp.ui.viewmodels.CoinsListViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class CoinsListFragment : Fragment() {
@@ -51,7 +49,8 @@ class CoinsListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpListeners()
+        setUpCollectors()
+        setUpChipsListener()
     }
 
     private fun setUpRecyclerView() {
@@ -63,7 +62,11 @@ class CoinsListFragment : Fragment() {
             }
             registerAdapterDataObserver(
                 object : RecyclerView.AdapterDataObserver() {
-                    override fun onItemRangeMoved(fromPosition: Int, toPosition: Int, itemCount: Int) {
+                    override fun onItemRangeMoved(
+                        fromPosition: Int,
+                        toPosition: Int,
+                        itemCount: Int,
+                    ) {
                         super.onItemRangeMoved(fromPosition, toPosition, itemCount)
                         binding.rvCoinsListCoins.scrollToPosition(0)
                     }
@@ -76,7 +79,7 @@ class CoinsListFragment : Fragment() {
         }
     }
 
-    private fun setUpListeners() {
+    private fun setUpCollectors() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.coinsList.collect { apiResponse ->
@@ -85,13 +88,38 @@ class CoinsListFragment : Fragment() {
                             binding.pbCoinsListLoading.visibility = INVISIBLE
                             coinsListAdapter.listDiffer.submitList(apiResponse.data)
                         }
+
                         is ApiError -> {
                             findNavController().navigate(CoinsListFragmentDirections.actionGlobalErrorFragment())
                         }
+
                         is ApiLoading -> {
                             binding.pbCoinsListLoading.visibility = VISIBLE
                         }
                     }
+                }
+            }
+        }
+    }
+
+    private fun setUpChipsListener() {
+        binding.chpgCoinsListCurrency.setOnCheckedStateChangeListener { _, checkedIds ->
+            //  ChipGroup with single selection
+            when (checkedIds[0]) {
+                com.asgribovskaya.mycoingeckoapp.R.id.chp_coins_list_usd -> {
+                    viewModel.getCoinsList("usd")
+                }
+
+                com.asgribovskaya.mycoingeckoapp.R.id.chp_coins_list_eur -> {
+                    viewModel.getCoinsList("eur")
+                }
+
+                com.asgribovskaya.mycoingeckoapp.R.id.chp_coins_list_rub -> {
+                    viewModel.getCoinsList("rub")
+                }
+
+                else -> {
+                    viewModel.getCoinsList()
                 }
             }
         }

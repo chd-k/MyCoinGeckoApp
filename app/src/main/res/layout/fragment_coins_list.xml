@@ -12,7 +12,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
+        android:paddingTop="8dp"
         android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
         app:checkedChip="@id/chp_coins_list_usd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +25,13 @@
             android:id="@+id/chp_coins_list_usd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="true"
             android:text="@string/chip_text_usd"
+            android:textColor="@color/chip_text"
+            android:textSize="16sp"
+            app:checkedIconEnabled="false"
+            app:chipBackgroundColor="@color/chip_background"
             app:chipEndPadding="16dp"
             app:chipStartPadding="16dp" />
 
@@ -31,7 +39,11 @@
             android:id="@+id/chp_coins_list_eur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
             android:text="@string/chip_text_eur"
+            android:textColor="@color/chip_text"
+            android:textSize="16sp"
+            app:chipBackgroundColor="@color/chip_background"
             app:chipEndPadding="16dp"
             app:chipStartPadding="16dp" />
 
@@ -39,7 +51,11 @@
             android:id="@+id/chp_coins_list_rub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
             android:text="@string/chip_text_rub"
+            android:textColor="@color/chip_text"
+            android:textSize="16sp"
+            app:chipBackgroundColor="@color/chip_background"
             app:chipEndPadding="16dp"
             app:chipStartPadding="16dp" />
 
