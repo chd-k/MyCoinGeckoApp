@@ -22,18 +22,6 @@ There is an app that show crypto data provided by [CoinGecko API](https://www.co
 - `DiffUtil` and `AdapterDataObserver` for scrolling `RecyclerView` to the top after changing list
 - color state list resources in `ChipGroup` for highlighting checked `Chip`
 
-### Process decomposition
-
-1. Setting up Gradle
-2. Setting up layers
-3. Setting up layouts for fragments
-4. Setting up responses, API and repositories
-5. Setting up ViewModels (stream from M to VM)
-6. Setting up RecyclerView
-7. Setting up fragments (stream from VM to V)
-8. Refactoring
-9. Testing
-
 ### Architecture layers
 
 ```
@@ -52,8 +40,15 @@ App
             |--- Utils          | Utility files (constants and response wrapper)
 ```
 
-### Upcoming updates
+### Process decomposition
 
-- [ ] change fonts
-- [ ] add sorting
-- [ ] add colors in percentage change
+1. Setting up Gradle
+2. Setting up layers
+3. Setting up layouts for fragments
+4. Setting up responses, API and repositories
+5. Setting up ViewModels (stream from M to VM)
+6. Setting up RecyclerView
+7. Setting up fragments (stream from VM to V)
+8. Refactoring
+9. Testing
+
